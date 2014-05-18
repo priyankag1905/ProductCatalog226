@@ -1,0 +1,13 @@
+extends layout
+
+block content
+	#page
+		form(action='/products',method='get')
+			h4 Category
+			select(name="category")
+				option(value="" selected=true)
+				each categoryitem, i in categorylist
+					option(value="#{categorylist[i]}") #{categorylist[i]}
+			input(type="text" name="txtsearch" )
+			input(type="submit", value="go", id="btnFind", onclick="hi();")
+		extra

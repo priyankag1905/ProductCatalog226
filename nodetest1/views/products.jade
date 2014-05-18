@@ -1,0 +1,31 @@
+extends layout
+
+block content
+	#page
+		if (productlist.length === 0)
+			p
+			h4 No products found!
+		else
+			each product, i in productlist
+				if (category==='')
+					h3 #{product.productname}
+					h4 Price: $#{product.price}
+					table
+						each val,index in product.meta
+							tr
+								td
+									p #{index}
+								td
+									p #{val}
+				else if (category===product.category)
+					h3 #{product.productname}
+					h4 Price: $#{product.price}
+					table
+						each val,index in product.meta
+							tr
+								td
+									p #{index}
+								td
+									p #{val}
+				br
+	#extra
